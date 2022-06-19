@@ -1,0 +1,48 @@
+.estore-prod {
+	height: 150px !important;
+	max-width: 100%;
+}
+
+.detail-img {
+	max-width: 100%;
+	max-height: 400px;
+}
+
+.detail-info li {
+	font-variant: small-caps;
+	font-size: larger;
+	line-height: 30px;
+}
+
+.thumb-img {
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+	margin: 3px;
+	padding: 3px;
+	box-shadow: 0px 0px 2px blue;
+}
+
+.thumb-img:hover {
+	box-shadow: 0px 0px 3px red;
+}
+
+.pro-icon-wraper {
+	position: relative;
+}
+
+.pro-icon {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.error{
+	color: red;
+}
+.giacu{
+	text-decoration: line-through;
+	color: gray;
+}
+.m-l{
+	margin-left: 5px;
+}
