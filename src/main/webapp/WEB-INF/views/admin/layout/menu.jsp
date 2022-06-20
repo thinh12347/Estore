@@ -11,7 +11,7 @@
 					<li><a href="/admin/category/index">Loại</a></li>
 					<li><a href="/admin/product/index">Sản Phẩm</a></li>
 					<li><a href="/admin/customer/index">Khách hàng</a></li>
-					<li><a href="/admin/order/index">Đơn hàng</a></li>
+					<!-- <li><a href="/admin/order/index">Đơn hàng</a></li> -->
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Thống kê <span class="caret"></span></a>

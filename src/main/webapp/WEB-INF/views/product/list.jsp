@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f"%>
 <c:forEach var="p" items="${list }">
 	<div class="col-sm-4">
 		<div class="thumbnail pro-icon-wraper">
@@ -22,12 +23,19 @@
 				<p>
 					<c:choose>
 						<c:when test="${p.discount == 0}">
-								${p.unitPrice }đ
+							<div class="gia">
+								<f:formatNumber value="${p.unitPrice }" pattern="#,###.000" />đ
+							</div>
 						</c:when>
 						<c:when test="${p.discount > 0 }">
-							<span class="giacu">${p.unitPrice } </span> &nbsp
-							<span class="error">${ p.unitPrice - (p.unitPrice *p.discount) }đ</span>
-							
+							<div class="gia">
+								<span class="giacu"><f:formatNumber
+										value="${p.unitPrice }" pattern="#,###.000" />đ</span> &nbsp <span
+									class="error"><f:formatNumber
+										value="${ p.unitPrice - (p.unitPrice *p.discount) }"
+										pattern="#,###.000" />đ</span>
+							</div>
+
 						</c:when>
 					</c:choose>
 				</p>

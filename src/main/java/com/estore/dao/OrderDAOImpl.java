@@ -30,9 +30,9 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<Order> findAll() {
-		String sql = "from Order";
+		String hql = "from Order";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Order> query = session.createQuery(sql, Order.class);
+		TypedQuery<Order> query = session.createQuery(hql, Order.class);
 		List<Order> list = query.getResultList();
 		return list;
 	}
@@ -70,9 +70,9 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<Order> findByUser(Customer user) {
-		String sql = "from Order o WHERE o.customer.id=:uid ORDER BY o.orderDate DESC";
+		String hql = "from Order o WHERE o.customer.id=:uid ORDER BY o.orderDate DESC";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Order> query = session.createQuery(sql, Order.class);
+		TypedQuery<Order> query = session.createQuery(hql, Order.class);
 		query.setParameter("uid", user.getId());
 		List<Order> list = query.getResultList();
 		return list;
@@ -80,9 +80,9 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<Product> findItemsByUser(Customer user) {
-		String sql = "Select distinct d.product from OrderDetail d WHERE d.order.customer.id=:uid";
+		String hql = "Select distinct d.product from OrderDetail d WHERE d.order.customer.id=:uid";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Product> query = session.createQuery(sql, Product.class);
+		TypedQuery<Product> query = session.createQuery(hql, Product.class);
 		query.setParameter("uid", user.getId());
 		List<Product> list = query.getResultList();
 		return list;
@@ -90,9 +90,9 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public long getPageCount(int pageSize) {
-		String sql = "select count(o) FROM Order o";
+		String hql = "select count(o) FROM Order o";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Long> query = session.createQuery(sql, Long.class);
+		TypedQuery<Long> query = session.createQuery(hql, Long.class);
 		Long rowCount = query.getSingleResult();
 		long pageCount = (long) Math.ceil(1.0 * rowCount / pageSize);
 		return pageCount;
@@ -100,9 +100,9 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<Order> getPage(int pageNo, int pageSize) {
-		String sql = "from Order";
+		String hql = "from Order";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Order> query = session.createQuery(sql, Order.class);
+		TypedQuery<Order> query = session.createQuery(hql, Order.class);
 		query.setFirstResult(pageNo*pageSize);
 		query.setMaxResults(pageSize);
 		List<Order> list = query.getResultList();

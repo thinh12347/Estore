@@ -82,7 +82,7 @@
 				$("<td/>").html(user.nameVN).appendTo(tr);
 				var s=`<td class="text-center">
 					<a class="btn btn-sm btn-info" href="/admin/category/edit/`+user.id+`">Sửa</a>
-					<a class="btn btn-sm btn-danger" href="/admin/category/delete/`+user.id+`" onclick="if (!(confirm('Bạn có muốn xóa? tất cả sản phẩm thuộc thể loại sẽ bị xóa'))) return false">Xóa</a>
+					<a class="btn btn-sm btn-danger" href="/admin/category/delete/`+user.id+`" onclick="if (!(confirm('Bạn có muốn xóa? tất cả sản phẩm thuộc thể loại này sẽ bị xóa'))) return false">Xóa</a>
 					</td>`;
 				$(s).appendTo(tr);
 				tr.appendTo("#tbody");

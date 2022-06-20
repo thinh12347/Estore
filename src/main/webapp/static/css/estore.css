@@ -36,6 +36,9 @@
 	top: 0px;
 	right: 0px;
 }
+.gia{
+	font-size: 12px;
+}
 .error{
 	color: red;
 }

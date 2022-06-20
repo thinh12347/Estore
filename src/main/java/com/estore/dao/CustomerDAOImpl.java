@@ -28,9 +28,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 	
 	@Override
 	public List<Customer> findAll() {
-		String sql = "from Customer";
+		String hql = "from Customer";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Customer> query = session.createQuery(sql, Customer.class);
+		TypedQuery<Customer> query = session.createQuery(hql, Customer.class);
 		List<Customer> list = query.getResultList();
 		return list;
 	}
@@ -60,9 +60,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public long getPageCount(int pageSize) {
-		String sql = "select count(c) FROM Customer c";
+		String hql = "select count(c) FROM Customer c";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Long> query = session.createQuery(sql, Long.class);
+		TypedQuery<Long> query = session.createQuery(hql, Long.class);
 		Long rowCount = query.getSingleResult();
 		long pageCount = (long) Math.ceil(1.0 * rowCount / pageSize);
 		return pageCount;
@@ -70,9 +70,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public List<Customer> getPage(int pageNo, int pageSize) {
-		String sql = "from Customer";
+		String hql = "from Customer";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Customer> query = session.createQuery(sql, Customer.class);
+		TypedQuery<Customer> query = session.createQuery(hql, Customer.class);
 		query.setFirstResult(pageNo*pageSize);
 		query.setMaxResults(pageSize);
 		List<Customer> list = query.getResultList();

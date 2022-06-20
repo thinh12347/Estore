@@ -27,9 +27,9 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
 	@Override
 	public List<OrderDetail > findAll() {
-		String sql="from OrderDetail ";
+		String hql="from OrderDetail ";
 		Session session = factory.getCurrentSession();
-		TypedQuery<OrderDetail > query = session.createQuery(sql,OrderDetail .class);
+		TypedQuery<OrderDetail > query = session.createQuery(hql,OrderDetail .class);
 		List<OrderDetail > list = query.getResultList();
 		return list;
 	}
@@ -58,9 +58,9 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
 	@Override
 	public List<OrderDetail> findByOrder(Order order) {
-		String sql="from OrderDetail d WHERE d.order.id=:oid";
+		String hql="from OrderDetail d WHERE d.order.id=:oid";
 		Session session = factory.getCurrentSession();
-		TypedQuery<OrderDetail > query = session.createQuery(sql,OrderDetail .class);
+		TypedQuery<OrderDetail > query = session.createQuery(hql,OrderDetail .class);
 		query.setParameter("oid", order.getId());
 		List<OrderDetail > list = query.getResultList();
 		return list;

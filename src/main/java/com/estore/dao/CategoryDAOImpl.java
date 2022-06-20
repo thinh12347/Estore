@@ -27,9 +27,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public List<Category> findAll() {
-		String sql="from Category";
+		String hql="from Category";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Category> query = session.createQuery(sql,Category.class);
+		TypedQuery<Category> query = session.createQuery(hql,Category.class);
 		List<Category> list = query.getResultList();
 		return list;
 	}
@@ -58,9 +58,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public long getPageCount(int pageSize) {
-		String sql = "select count(c) FROM Category  c";
+		String hql = "select count(c) FROM Category  c";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Long> query = session.createQuery(sql, Long.class);
+		TypedQuery<Long> query = session.createQuery(hql, Long.class);
 		Long rowCount = query.getSingleResult();
 		long pageCount = (long) Math.ceil(1.0 * rowCount / pageSize);
 		return pageCount;
@@ -68,9 +68,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public List<Category> getPage(int pageNo, int pageSize) {
-		String sql = "from Category ";
+		String hql = "from Category ";
 		Session session = factory.getCurrentSession();
-		TypedQuery<Category> query = session.createQuery(sql, Category.class);
+		TypedQuery<Category> query = session.createQuery(hql, Category.class);
 		query.setFirstResult(pageNo*pageSize);
 		query.setMaxResults(pageSize);
 		List<Category> list = query.getResultList();

@@ -30,10 +30,10 @@
 					<tr>
 						<td>${e[0] }</td>
 						<td>${e[1] }</td>
-						<td><f:formatNumber value="${e[2] }" pattern="#,###"></f:formatNumber>VNĐ</td>
-						<td><f:formatNumber value="${e[3] }" pattern="#,###"></f:formatNumber>VNĐ</td>
-						<td><f:formatNumber value="${e[4]}" pattern="#,###"></f:formatNumber>VNĐ</td>
-						<td><f:formatNumber value="${e[5] }" pattern="#,###"></f:formatNumber>VNĐ</td>
+						<td><f:formatNumber value="${e[2] }" pattern="#,###.000"></f:formatNumber>VNĐ</td>
+						<td><f:formatNumber value="${e[3] }" pattern="#,###.000"></f:formatNumber>VNĐ</td>
+						<td><f:formatNumber value="${e[4]}" pattern="#,###.000"></f:formatNumber>VNĐ</td>
+						<td><f:formatNumber value="${e[5] }" pattern="#,###.000"></f:formatNumber>VNĐ</td>
 					</tr>
 				</c:forEach>
 			</tbody>

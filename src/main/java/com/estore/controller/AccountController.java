@@ -86,7 +86,7 @@ public class AccountController {
 				return "redirect:" + backUrl;
 			}
 		}
-		return "account/login";
+		return "redirect:/home/index";
 	}
 
 	@RequestMapping("/account/logoff")
